@@ -1,0 +1,7 @@
+@import "~bootstrap/scss/bootstrap";
+$headings-color: rgb(7, 22, 73);
+$primary-color:rgb(245, 198, 245);
+body {
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
+}

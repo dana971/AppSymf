@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Page de bienvenue{% endblock %}
+
+{% block body %}
+    <h2>Bienvenue à {{ nom | upper }} {{ prenom }}</h2>
+    test date: {{ 1697809058 | date ('d-m-Y H:i:s')}}
+
+    {# test de l'age du participant  #}
+    {% if age > 60 %}
+        <h3>Vous êtes un senior</h3>
+    {% else %}
+        <h3>Vous êtes un junior</h3>
+    {% endif %}
+
+    {{ messageHtml | raw }}
+    {{ dump(monTableau) }}
+
+    {# Exemple boucle for dans un Twig #}
+    {%for key, element in monTableau %}
+    {{ key }} : {{ element }} <br>
+    {% endfor %}
+    {# Fin exemple boucle for dans un Twig #}
+    <div class="w-25 h-25">
+        {{ render_chart(chart) }}
+    </div>
+
+    <div class="w-25 h-25">
+        {{ render_chart(histo) }}
+    </div>
+
+    {% verbatim %}
+    <div id="app">
+      <button @click="compteur++">
+        Le compteur est à {{ compteur }}
+      </button>
+    {% endverbatim %}
+
+    <div>
+        <button>Cliquez ici ! </button>
+    </div>
+    <button>
+        <a href="{{ path('test') }}" title="vers Test">vers Test</a>
+    </button>
+{% endblock %}
